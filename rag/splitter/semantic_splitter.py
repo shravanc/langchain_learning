@@ -1,3 +1,4 @@
+import os
 from langchain_community.document_loaders import PyPDFLoader
 from langchain_experimental.text_splitter import SemanticChunker
 from langchain_ollama import OllamaEmbeddings
@@ -18,7 +19,10 @@ semantic_splitter = SemanticChunker(
 
 # 3. Load PDF
 # If the PDF is huge, test with just one page first to verify stability
-loader = PyPDFLoader("./beagle.pdf")
+script_dir = os.path.dirname(os.path.abspath(__file__))
+project_root = os.path.dirname(script_dir)
+pdf_path = os.path.join(project_root, "beagle.pdf") # Assumes beagle.pdf is in the project root
+loader = PyPDFLoader(pdf_path)
 docs = loader.load() 
 
 print(f"Loaded {len(docs)} pages. Starting semantic split (this may take time)...")
