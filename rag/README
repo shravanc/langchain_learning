@@ -4,4 +4,13 @@
 4. VectorStore
 5. Retrievers
 6. Prompts
-7. 
+7.
+
+
+
+
+OLAMMA:
+
+ollama ls
+ollama pull nomic-embed-text
+ollama pull llama3.2 
