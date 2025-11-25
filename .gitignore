@@ -5,3 +5,5 @@
 # LangGraph
 .langgraph_api/
 venv/
+rag/boxilla_db_data
+rag/chroma_db_data
