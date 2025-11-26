@@ -9,8 +9,8 @@ from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
 from langchain_ollama import ChatOllama, OllamaEmbeddings
 
 # Global variables
-embeddings = OllamaEmbeddings(model="nomic-embed-text")
-llm = ChatOllama(model="llama3.2")
+embeddings = OllamaEmbeddings(model="nomic-embed-text", num_gpu=999)
+llm = ChatOllama(model="llama3.2", num_gpu=999)
 vector_store = Chroma(persist_directory="./boxilla_db_data", embedding_function=embeddings)
 retriever = vector_store.as_retriever(search_kwargs={"k": 3})
 
